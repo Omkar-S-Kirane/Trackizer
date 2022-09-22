@@ -4,16 +4,16 @@ import Styles from './Styles';
 
 import bg from '../../../source/assets/images/Home/bg.png';
 import logo from '../../../source/assets/icon/logo.png';
-import styles from './Styles';
+// import Styles from './Styles';
 
-const Home = () => {
+const Home = (props) => {
   return (
     <SafeAreaView style={Styles.root}>
       <View style={Styles.container}>
         <View styles={Styles.logo}>
           <Image source={logo} />
         </View>
-        
+
         <View styles={[Styles.backGround]}>
           <Image source={bg} />
         </View>
@@ -26,10 +26,16 @@ const Home = () => {
             <Text style={Styles.txt}>Arcu leo leo urna risus.</Text>
           </View>
           <View style={Styles.button}>
-            <TouchableOpacity style={Styles.btn1} onPress={{}}>
+            <TouchableOpacity
+              style={[Styles.btn, {backgroundColor: '#FF7966'}]}
+              onPress={() => props.navigation.navigate('Register1')}>
               <Text style={Styles.txt}>Get started</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={Styles.btn2} onPress={{}}>
+            <TouchableOpacity
+              style={[Styles.btn, {backgroundColor: 'rgba(255, 255, 255, 0.1)',}]}
+              onPress={
+                (onPress = () => props.navigation.navigate('Register2'))
+              }>
               <Text style={Styles.txt}>I have an account</Text>
             </TouchableOpacity>
           </View>

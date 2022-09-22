@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1C1C23',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 70,
+    marginVertical: 100,
     justifyContent: 'space-evenly',
   },
   logo: {
@@ -47,34 +47,26 @@ const styles = StyleSheet.create({
   button: {
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: -35,
   },
-  btn1: {
+  btn: {
     width: windowWidth - 50,
-    borderWidth: 1,
+    // borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: 10,
     height: 48,
-    backgroundColor: '#FF7966',
     borderRadius: 20,
+    marginBottom: 5,
   },
   btn2: {
     width: windowWidth - 50,
-    borderWidth: 1,
+    // borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: -20,
+
     height: 48,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     borderRadius: 20,
-  },
-  overlay_texture: {
-    flex: 1,
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    right: 0,
-    bottom: 0,
   },
 });
 export default styles;

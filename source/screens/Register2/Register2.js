@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Register2 = () => {
+const Register2 = (props) => {
   return (
     <View>
       <Text>Register2</Text>
