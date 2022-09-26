@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: 10,
-    // backgroundColor: 'blue',
+    backgroundColor: 'blue',
   },
   textView: {
     justifyContent: 'center',

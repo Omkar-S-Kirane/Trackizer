@@ -4,38 +4,45 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import styles from './Styles';
 
 import logo from '../../../source/assets/icon/logo.png';
+import box from '../../../source/assets/icon/box.png';
+import boxFIll from '../../../source/assets/icon/boxFIll.png';
 import Difficulty from '../../../source/assets/images/Register2/Difficulty.png';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Register2 = props => {
+  const [check, setCheck] = useState(box);
+  const validate = () => {
+    if (check == box) {
+      console.log('Switch to check2');
+      return setCheck(boxFIll);
+    } else {
+      console.log('Switch to check1');
+      return setCheck(box);
+    }
+  };
   const [inputs, setInputs] = useState({
-    userName: '',
+    userId: '',
     password: '',
   });
-  console.log('InputsR: ', inputs);
+  console.log("Inputs: ",inputs);
   const handleOnchange = (text, input) => {
     // Alert.alert('handleOnchange');
     setInputs(prevState => ({...prevState, [input]: text}));
   };
-  const setDATA = async () => {
+  const getDATA = async () => {
     try {
-      const jsonValue = JSON.stringify(inputs);
-      // console.log('jsonValue', jsonValue);
-      const temp = await AsyncStorage.setItem('@Key', jsonValue);
-      console.log('temp', JSON.parse(jsonValue));
-      const value = JSON.parse(jsonValue);
-      if (
-        value.password == inputs.password &&
-        value.userName == inputs.userName
-      ) {
-        alert('User already exists! Please Login.');
-      }
+      const jsonValue = await AsyncStorage.getItem('@Key');
+      value = JSON.parse(jsonValue);
+      console.log('Value', value);
     } catch (e) {
       console.log('Error getting Data: ', e);
     }
-
-    // getDATA();
+    if (value.password == inputs.password && value.userName == inputs.userId) {
+      alert('Login successful');
+    } else {
+      alert('Error! userId/Password mismatch');
+    }
   };
   return (
     <SafeAreaView style={styles.root}>
@@ -45,11 +52,11 @@ const Register2 = props => {
 
       <View style={styles.login}>
         <View style={styles.loginComponent}>
-          <Text style={[styles.txt, {fontSize: 10}]}>E-mail address</Text>
+          <Text style={[styles.txt, {fontSize: 10}]}>Login</Text>
           <TextInput
             style={styles.input}
-            label="userName"
-            onChangeText={text => handleOnchange(text, 'userName')}></TextInput>
+            label="userId"
+            onChangeText={text => handleOnchange(text, 'userId')}></TextInput>
         </View>
         <View style={styles.loginComponent}>
           <Text style={[styles.txt, {fontSize: 10}]}>Password</Text>
@@ -59,48 +66,44 @@ const Register2 = props => {
             label="password"
             onChangeText={text => handleOnchange(text, 'password')}></TextInput>
         </View>
-        <View style={styles.line}>
-          <Image source={Difficulty} style={styles.diff} />
-          <Text style={[styles.txt1, {marginTop: 10}]}>
-            Use 8 or more characters with a mix of letters,
-          </Text>
-          <Text style={styles.txt1}>numbers & symbols.</Text>
+
+        <View style={styles.checkBox}>
+          <TouchableOpacity onPress={validate} style={styles.check}>
+            <Image source={check} style={styles.box} />
+            <Text style={[styles.txt, {fontSize: 12, marginHorizontal: 10}]}>
+              Remember Me
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={[styles.check, {marginLeft: 70}]}>
+            <Text style={[styles.txt, {fontSize: 12, fontWeight: 'bold'}]}>
+              Forgot passoword
+            </Text>
+          </TouchableOpacity>
         </View>
+
         <View style={styles.button}>
           <TouchableOpacity
-            style={[styles.btn, {backgroundColor: '#FF7966', marginTop: 20}]}
-            onPress={async () => {
-              setDATA();
-              const jsn = await AsyncStorage.getItem('@Key');
-              value = JSON.parse(jsn);
-              if (
-                value.password == inputs.password &&
-                value.userName == inputs.userName
-              ) {
-                alert('User already exists! Please Login.');
-              } else {
-                props.navigation.navigate('login');
-              }
-            }}
+            style={[styles.btn, {backgroundColor: '#FF7966'}]}
+            onPress={getDATA}
             // activeOpacity={0.9}
           >
-            <Text style={[styles.txt, {color: '#FFFFFF'}]}>
-              Get started, it’s free!
-            </Text>
+            <Text style={[styles.txt, {color: '#FFFFFF'}]}>Sign In</Text>
           </TouchableOpacity>
         </View>
       </View>
       <View style={styles.bottom}>
         <Text style={[styles.txt, {color: '#FFFFFF', fontWeight: 'normal'}]}>
-          Do you have already an account?
+          If you don't have an account yet?
         </Text>
         <TouchableOpacity
           style={[
             styles.btn,
             {backgroundColor: 'rgba(255, 255, 255, 0.1)', marginBottom: 35},
           ]}
-          onPress={() => props.navigation.navigate('Login')}>
-          <Text style={[styles.txt, {color: '#FFFFFF'}]}>Sign In</Text>
+          // onPress={() => props.navigation.navigate('Register2')}>
+          onPress={() => props.navigation.navigate('YourSubs')}>
+          <Text style={[styles.txt, {color: '#FFFFFF'}]}>Sign Up</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

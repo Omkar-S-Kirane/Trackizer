@@ -17,12 +17,9 @@ const styles = StyleSheet.create({
     marginTop: 80,
   },
   login: {
-    // flex: 1,
     width: windowWidth,
     flexDirection: 'column',
-    // justifyContent: 'flex-end',
     alignItems: 'center',
-    // marginVertical: 10,
   },
   txt: {
     fontSize: 13,
@@ -34,11 +31,9 @@ const styles = StyleSheet.create({
   txt1: {
     fontFamily: 'inter',
     marginHorizontal: 10,
-    // marginVertical: 5,
     color: '#666680',
-    // marginTop: 25,
     fontSize: 10,
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
   input: {
     width: windowWidth - 20,
@@ -52,10 +47,21 @@ const styles = StyleSheet.create({
   loginComponent: {
     marginVertical: 5,
   },
-  line: {
-    // alignItems: 'center',
+  checkBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 10,
+    marginTop: -10,
+  },
+  check: {
+    marginVertical: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  box: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   diff: {
     alignItems: 'center',
@@ -64,7 +70,7 @@ const styles = StyleSheet.create({
   button: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: -50,
+    marginTop: 10,
   },
   btn: {
     width: windowWidth - 50,
@@ -77,7 +83,6 @@ const styles = StyleSheet.create({
   bottom: {
     justifyContent: 'center',
     alignItems: 'center',
-    // marginBottom: 30
   },
 });
 export default styles;
