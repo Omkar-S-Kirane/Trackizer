@@ -2,6 +2,7 @@ import {StyleSheet, Dimensions} from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+console.log(windowHeight);
 
 const styles = StyleSheet.create({
   root: {
@@ -18,15 +19,70 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: windowWidth / 20,
   },
+  logo: {
+    // marginTop: 150,
+  },
+  setting: {
+    marginTop: 15,
+    marginLeft: 300,
+  },
+  innerCircle: {
+    marginTop: 70,
+    justifyContent: 'space-evenly',
+  },
   circle: {
-    // backgroundColor: 'blue',
+    backgroundColor: 'red',
     marginHorizontal: 30,
-    // marginVertical: 15,
+    marginVertical: 15,
     borderRadius: windowWidth / 2,
     height: windowHeight / 2.7,
     width: windowWidth - 75,
     borderWidth: 1,
-    borderColor: 'white'
+    borderColor: 'white',
+
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+  },
+  circle1: {
+    backgroundColor: '#1C1C23',
+    // marginHorizontal: 50,
+    // marginVertical: 15,
+    borderRadius: windowWidth / 2,
+    height: windowHeight / 3,
+    width: windowWidth - 95,
+    borderWidth: 1,
+    borderColor: 'white',
+
+    justifyContent: 'center',
+    // alignContent: 'center',
+    alignItems: 'center',
+  },
+  box: {
+    backgroundColor: '#1C1C23',
+    // marginHorizontal: 50,
+    // marginVertical: 15,
+    // borderRadius: windowWidth / 2,
+    height: windowHeight / 10,
+    width: windowWidth / 2,
+    // borderWidth: 1,
+    borderColor: 'white',
+    // marginTop: 232,
+    marginTop: windowHeight - 630.33,
+
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+  },
+  budget: {
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    // marginVertical: 5,
+    // marginHorizontal: 5,
+    width: (windowWidth - 40) / 2.5,
+    height: (windowWidth - 20) / 8,
+    borderRadius: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   button: {
     backgroundColor: 'black',

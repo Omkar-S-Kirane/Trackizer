@@ -6,7 +6,7 @@ import styles from './Styles';
 
 import BottomTabs from '../../components/BottomTabs';
 // import CircularProgress from 'react-native-circular-progress-indicator';
-import SemiCircleProgressBar from 'react-progressbar-semicircle';
+// import SemiCircleProgressBar from 'react-progressbar-semicircle';
 
 import youtube from '../../assets/icon/youtube.png'
 import HBO from '../../assets/icon/HBO.png'
@@ -14,6 +14,8 @@ import OneDrive from '../../assets/icon/OneDrive.png'
 import Mastercard from '../../assets/icon/Mastercard.png'
 import Spotify from '../../assets/icon/Spotify.png'
 import Netflix from '../../assets/icon/Netflix.png'
+import logo from '../../assets/icon/logo.png'
+import settings from '../../assets/icon/Settings.png'
 
 const YourSubs = () => {
 
@@ -55,7 +57,21 @@ const YourSubs = () => {
       <ScrollView>
         {/* <BottomTabs /> */}
         <View style={styles.container}>
+          <Image source={settings} style={styles.setting} />
           <View style={styles.circle}>
+            <View style={styles.circle1}>
+              <View style={styles.innerCircle}>
+                <Image source={logo} style={styles.logo} />
+
+                <View style={styles.box}>
+                  <TouchableOpacity style={styles.budget}>
+                    <Text style={[styles.touchableText, {color: 'white'}]}>
+                      See your budget
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
             {/* <SemiCircleProgressBar percentage={33} showPercentValue /> */}
           </View>
           <View style={styles.bt}>
@@ -138,7 +154,7 @@ const YourSubs = () => {
           <View style={styles.data}>
             <View style={styles.tabs}>
               <View style={styles.left}>
-                <Image source={HBO} style={styles.ico} />
+                <Image source={OneDrive} style={styles.ico} />
                 <Text
                   style={[
                     styles.touchableText,
